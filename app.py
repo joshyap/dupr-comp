@@ -41,15 +41,29 @@ st.markdown(
     .section-copy { color: #68798d; font-size: .85rem; }
     .scope-box { background: #eaf3fc; border: 1px solid #c9dced; border-radius: 14px; padding: 1rem 1.25rem; color: #526b83; font-size: .84rem; line-height: 1.55; }
     .scope-box strong { color: #294d6d; }
-    div[data-testid="stTextInput"] input {
+    div[data-testid="stTextInput"] [data-testid="stTextInputRootElement"] {
+        display: flex;
+        align-items: center;
+        height: auto !important;
         min-height: 3.25rem;
-        border: 1px solid #8aaeca !important;
+        overflow: visible !important;
+        border: 1.5px solid #8aaeca !important;
         border-radius: 10px;
         background: #ffffff !important;
-        color: #182b42 !important;
         box-shadow: 0 0 0 1px rgb(57 125 182 / 12%) !important;
     }
+    div[data-testid="stTextInput"] input {
+        min-height: 3rem;
+        border: 0 !important;
+        border-radius: inherit;
+        background: transparent !important;
+        color: #182b42 !important;
+        box-shadow: none !important;
+    }
     div[data-testid="stTextInput"] input:focus {
+        outline: none;
+    }
+    div[data-testid="stTextInput"] [data-testid="stTextInputRootElement"]:focus-within {
         border-color: #174a7e !important;
         box-shadow: 0 0 0 3px rgb(23 74 126 / 20%) !important;
     }
