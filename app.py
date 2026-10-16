@@ -29,7 +29,7 @@ st.markdown(
     <style>
     .stApp { background: #f2f6fb; color: #182b42; }
     [data-testid="stHeader"] { background: rgba(242, 246, 251, .88); }
-    .block-container { max-width: 1180px; padding-top: 1.2rem; padding-bottom: 3rem; }
+    .block-container { max-width: 1180px; padding-top: 4rem; padding-bottom: 3rem; }
     .hero-title { color: #182b42; font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 780; letter-spacing: -.06em; line-height: 1.03; margin: .45rem 0 .65rem; }
     .hero-copy { color: #68798d; font-size: 1rem; line-height: 1.6; max-width: 660px; }
     .panel { background: white; border: 1px solid #dce6f0; border-radius: 16px; padding: 1.2rem 1.35rem; }
@@ -43,15 +43,15 @@ st.markdown(
     .scope-box strong { color: #294d6d; }
     div[data-testid="stTextInput"] input {
         min-height: 3.25rem;
-        border: 2px solid #397db6 !important;
+        border: 1px solid #8aaeca !important;
         border-radius: 10px;
-        background: #f7fbff !important;
+        background: #ffffff !important;
         color: #182b42 !important;
-        box-shadow: 0 0 0 3px rgb(57 125 182 / 18%) !important;
+        box-shadow: 0 0 0 1px rgb(57 125 182 / 12%) !important;
     }
     div[data-testid="stTextInput"] input:focus {
-        border-color: #174a7e;
-        box-shadow: 0 0 0 3px rgb(23 74 126 / 20%);
+        border-color: #174a7e !important;
+        box-shadow: 0 0 0 3px rgb(23 74 126 / 20%) !important;
     }
     div[data-testid="stMetric"] { background: white; border: 1px solid #dce6f0; border-radius: 12px; padding: .85rem 1rem; }
     div[data-testid="stMetricLabel"] { color: #68798d; }
