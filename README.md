@@ -2,6 +2,8 @@
 
 DUPR Comp is a Python-first data analysis project that compares a doubles DUPR rating with the published active-player rating distribution and percentile benchmarks. The interactive dashboard is built with Streamlit; pandas loads and analyzes the source data, and Plotly renders the visualizations.
 
+**Live app:** <https://dupr-comp.streamlit.app/>
+
 ## What the analysis shows
 
 - An entered rating's approximate percentile and distribution band.

@@ -30,7 +30,6 @@ st.markdown(
     .stApp { background: #f2f6fb; color: #182b42; }
     [data-testid="stHeader"] { background: rgba(242, 246, 251, .88); }
     .block-container { max-width: 1180px; padding-top: 1.2rem; padding-bottom: 3rem; }
-    .brand { color: #174a7e; font-size: .82rem; font-weight: 800; letter-spacing: .14em; }
     .hero-title { color: #182b42; font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 780; letter-spacing: -.06em; line-height: 1.03; margin: .45rem 0 .65rem; }
     .hero-copy { color: #68798d; font-size: 1rem; line-height: 1.6; max-width: 660px; }
     .panel { background: white; border: 1px solid #dce6f0; border-radius: 16px; padding: 1.2rem 1.35rem; }
@@ -42,6 +41,18 @@ st.markdown(
     .section-copy { color: #68798d; font-size: .85rem; }
     .scope-box { background: #eaf3fc; border: 1px solid #c9dced; border-radius: 14px; padding: 1rem 1.25rem; color: #526b83; font-size: .84rem; line-height: 1.55; }
     .scope-box strong { color: #294d6d; }
+    div[data-testid="stTextInput"] input {
+        min-height: 3.25rem;
+        border: 2px solid #397db6 !important;
+        border-radius: 10px;
+        background: #f7fbff !important;
+        color: #182b42 !important;
+        box-shadow: 0 0 0 3px rgb(57 125 182 / 18%) !important;
+    }
+    div[data-testid="stTextInput"] input:focus {
+        border-color: #174a7e;
+        box-shadow: 0 0 0 3px rgb(23 74 126 / 20%);
+    }
     div[data-testid="stMetric"] { background: white; border: 1px solid #dce6f0; border-radius: 12px; padding: .85rem 1rem; }
     div[data-testid="stMetricLabel"] { color: #68798d; }
     .stButton > button, .stDownloadButton > button { border-radius: 9px; }
@@ -71,7 +82,7 @@ def ordinal(value: int) -> str:
     return f"{value}{suffix}"
 
 
-st.markdown('<div class="brand">DUPR COMP · DATA ANALYSIS</div>', unsafe_allow_html=True)
+st.markdown("#### DUPR COMP · DATA ANALYSIS")
 st.markdown('<div class="hero-title">Your rating,<br>in the bigger picture.</div>', unsafe_allow_html=True)
 st.markdown(
     '<div class="hero-copy">Explore your doubles DUPR against the published active-player '
@@ -261,12 +272,12 @@ with benchmark_col:
 st.markdown('<div class="section-title">Milestones ahead</div>', unsafe_allow_html=True)
 st.markdown('<div class="section-copy">Each benchmark marks the bottom of its rating band.</div>', unsafe_allow_html=True)
 milestone_view = benchmarks.copy()
-milestone_view["Top share"] = 100 - milestone_view["percentile"]
+milestone_view["Approx. share below"] = milestone_view["percentile"].map(
+    lambda value: f"{100 - value:.0f}%"
+)
 milestone_view["DUPR rating"] = milestone_view["rating"].map(lambda value: f"{value:.1f}")
 milestone_view["Percentile"] = milestone_view["percentile"].map(lambda value: f"{value:.0f}th")
-display_milestones = milestone_view[["DUPR rating", "Percentile", "Top share"]].rename(
-    columns={"Top share": "Approx. share below"}
-)
+display_milestones = milestone_view[["DUPR rating", "Percentile", "Approx. share below"]]
 st.dataframe(display_milestones, hide_index=True, width="stretch")
 
 st.markdown(
