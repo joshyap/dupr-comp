@@ -105,22 +105,6 @@ st.markdown(
 )
 st.write("")
 
-with st.container(border=True):
-    st.markdown("#### Important context about this data")
-    scope_left, scope_right = st.columns(2)
-    with scope_left:
-        st.markdown(
-            "- **Doubles only:** singles ratings are not included.\n"
-            "- **Active players:** at least one result in the previous 12 months."
-        )
-    with scope_right:
-        st.markdown(
-            "- **DUPR participants, not everyone:** recreational players without logged "
-            "results are not represented; rated players may skew more competitive.\n"
-            "- **Rounded source figures:** percentages are approximate; values between "
-            "published percentile benchmarks are estimates."
-        )
-
 st.write("")
 input_col, result_col = st.columns([1, 1], gap="large")
 with input_col:
@@ -306,6 +290,22 @@ st.markdown(
 )
 
 st.divider()
+with st.container(border=True):
+    st.markdown("#### Important context about this data")
+    scope_left, scope_right = st.columns(2)
+    with scope_left:
+        st.markdown(
+            "- **Doubles only:** singles ratings are not included.\n"
+            "- **Active players:** at least one result in the previous 12 months."
+        )
+    with scope_right:
+        st.markdown(
+            "- **DUPR participants, not everyone:** recreational players without logged "
+            "results are not represented; rated players may skew more competitive.\n"
+            "- **Rounded source figures:** percentages are approximate; values between "
+            "published percentile benchmarks are estimates."
+        )
+
 st.markdown(
     f"Source: [DUPR percentile article](https://www.dupr.com/post/dupr-rating-percentiles-see-how-your-rating-stacks-up-2) · "
     f"snapshot dated {SOURCE_DATE}. Estimates are informational and are not official DUPR calculations."
